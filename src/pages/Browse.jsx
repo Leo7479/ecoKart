@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const Browse = () => {
+  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [filtersVisible, setFiltersVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState({
@@ -18,8 +19,9 @@ const Browse = () => {
     const fetchData = async () => {
       const result = await fetchProducts();
       setProducts(result);
+      setLoading(false);
     };
-    fetchData();
+    setTimeout(()=>{fetchData()},3000);
   }, []);
 
   const toggleFilters = () => setFiltersVisible(!filtersVisible);
@@ -190,7 +192,14 @@ const Browse = () => {
 
         {/* Products Grid */}
         <div className="w-full flex flex-wrap gap-4">
-          {filteredProducts.map((product) => (
+          {loading?
+          <>
+          <ProductCard key={0} loading={true}/>
+          <ProductCard key={1} loading={true}/>
+          <ProductCard key={2} loading={true}/>
+          </>
+          :
+          filteredProducts.map((product) => (
             <ProductCard key={product.id} data={product} />
           ))}
         </div>

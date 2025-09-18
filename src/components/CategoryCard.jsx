@@ -16,8 +16,8 @@ const CategoryCard = ({ src, imageSrc, altText }) => {
           start: "top 85%",
           end: "bottom 85%",
         },
-        duration: 0.6,
-        stagger: 0.15,
+        duration: 0.3,
+        stagger: 0.05,
         ease: "power2.out",
       }
     );
