@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    @apply selection:bg-forest-green selection:text-eco-sand scroll-smooth;
+}
+
+:root{
+    --color-mint-green: #44b147;
+    --color-forest-green: #2e7d32;
+    --color-eco-sand: #f5f5f5;
+    --color-slate-gray: #37474f;
+    --color-bg-green: #549157;
+    --color-cream-white: #f8f0e3;
+}
+
+@layer components{
+      .eco-section {
+    @apply py-20 px-6 lg:px-20;
+  }
+
+  .eco-heading {
+    @apply font-serif text-forest-green text-[2rem]/[2.5rem] lg:text-[2.5rem]/[3rem] font-bold mb-6;
+  }
+
+  .eco-card {
+    @apply bg-eco-sand rounded-2xl shadow-md hover:shadow-xl transition-all duration-300;
+  }
+
+  .eco-btn {
+    @apply px-6 py-3 rounded-full font-semibold text-white bg-mint-green hover:bg-forest-green transition-all duration-300 shadow-md;
+  }
+
+  .eco-btn-outline {
+    @apply px-6 py-3 rounded-full font-semibold border-2 border-mint-green text-mint-green hover:bg-mint-green hover:text-white transition-all duration-300;
+  }
+
+  .eco-icon-circle {
+    @apply w-16 h-16 flex justify-center items-center rounded-full bg-mint-green text-white shadow-md;
+  }
+
+    .menu-option{
+        @apply relative mx-0 my-2 lg:mx-4 lg:my-0 cursor-pointer;
+    }
+    .menu-option span{
+        @apply relative flex justify-center items-center flex-row w-full h-full text-slate-gray p-2 text-lg;
+    }
+    .menu-option span svg{
+        margin-top: 0;
+        @apply h-full flex justify-center items-center m-0;
+        transition: all 0.1s ease-out;
+    }
+    .menu-option span div{
+        height: fit-content;
+        @apply max-h-[0px] lg:max-h-[0] w-60 absolute -bottom-0 left-[50%] -translate-x-[50%] translate-y-full overflow-hidden rounded-xl bg-eco-sand shadow-lg;
+        transition: all .2s ease-out;
+    }
+    .menu-option div ul{
+        @apply w-full h-full flex flex-col justify-start items-center space-y-4 text-slate-gray flex-nowrap rounded-xl p-8 overflow-y-visible overflow-x-hidden lg:text-lg;
+    }
+    .menu-option div ul li{
+        transition: all 0.1s ease-out;
+        @apply w-full text-center relative cursor-pointer hover:font-bold pb-2;
+    }
+    .menu-option div ul li::after{
+        content:'';
+        transition: all 0.1s ease-out;
+        @apply w-[40%] h-[4px] bg-[var(--color-mint-green)] absolute bottom-0 left-[50%] -translate-x-[50%] hover:w-[75%];
+    }
+    .menu-option span:hover div{
+        @apply lg:max-h-[300px]
+    }
+    #hamburgerMenu{
+        @apply w-10 h-10 flex flex-col justify-center items-center space-y-1 cursor-pointer lg:hidden;
+    }
+    #hamburgerMenu span{
+        @apply w-[30px] h-[4px] bg-white relative rounded-xl transition-all duration-300 ease-in-out bg-slate-gray;
+    }
+    #hamburgerMenu span:nth-child(1){
+        @apply top-0 left-0;
+        transform: translateY(-100%);
+    }
+    #hamburgerMenu span:nth-child(3){
+        @apply bottom-0 left-0;
+        transform: translateY(100%);
+    }
+    #lowernav{
+        transition: all 1s ease;
+    }
+    ::-webkit-scrollbar{
+        @apply w-[0px] h-[0px] bg-eco-sand rounded-lg;
+    }
+    ::-webkit-scrollbar-thumb{
+        @apply bg-forest-green rounded-lg;
+    }
+    #navbar svg{
+        border-radius:50%;
+        @apply transition-all duration-200 ease-in-out cursor-pointer w-[40px] p-[5px];
+    }
+    .category-card:hover span{
+        @apply p-0;
+    }
+    .category-card:hover div span span{
+        @apply max-h-[100%] flex justify-center items-center;
+    }
+}
